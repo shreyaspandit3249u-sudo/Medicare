@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "09d70399-4f4c-4766-bf30-209d733bfee9"
+      }
+    },
+    "android": {
+      "package": "com.shreyas_pandit.healthassistant"
+    }
+  }
+}

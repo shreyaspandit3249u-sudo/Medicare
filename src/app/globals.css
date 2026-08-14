@@ -1,40 +1,90 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Material 3 Color Palette (Light) - Blue Tonal Palette */
+  --md-sys-color-primary: #005ac1;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #d8e2ff;
+  --md-sys-color-on-primary-container: #001a41;
+  --md-sys-color-secondary: #575e71;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #dbe2f9;
+  --md-sys-color-on-secondary-container: #141b2c;
+  --md-sys-color-tertiary: #715573;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #fbd7fc;
+  --md-sys-color-on-tertiary-container: #29132d;
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error-container: #410002;
+  --md-sys-color-background: #fdfbff;
+  --md-sys-color-on-background: #1b1b1f;
+  --md-sys-color-surface: #fdfbff;
+  --md-sys-color-on-surface: #1b1b1f;
+  --md-sys-color-surface-variant: #e1e2ec;
+  --md-sys-color-on-surface-variant: #44474f;
+  --md-sys-color-outline: #74777f;
+  
+  /* Legacy mapping for backward compatibility if needed */
+  --primary: var(--md-sys-color-primary);
+  --primary-hover: #004a99;
+  --background: var(--md-sys-color-background);
+  --foreground: var(--md-sys-color-on-background);
+  --text-main: var(--md-sys-color-on-background);
+  --text-muted: var(--md-sys-color-on-surface-variant);
+  --border: var(--md-sys-color-outline);
+  --success: #10b981;
+  --danger: var(--md-sys-color-error);
+  
+  /* M3 Tokens */
+  --radius-xs: 4px;
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 16px;
+  --radius-xl: 28px;
+  
+  --elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  --elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  --elevation-3: 0px 4px 12px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --md-sys-color-primary: #adc6ff;
+    --md-sys-color-on-primary: #002e69;
+    --md-sys-color-primary-container: #004494;
+    --md-sys-color-on-primary-container: #d8e2ff;
+    --md-sys-color-secondary: #bfc6dc;
+    --md-sys-color-on-secondary: #293041;
+    --md-sys-color-secondary-container: #3f4759;
+    --md-sys-color-on-secondary-container: #dbe2f9;
+    --md-sys-color-tertiary: #debcdf;
+    --md-sys-color-on-tertiary: #402843;
+    --md-sys-color-tertiary-container: #583e5a;
+    --md-sys-color-on-tertiary-container: #fbd7fc;
+    --md-sys-color-background: #1b1b1f;
+    --md-sys-color-on-background: #e3e2e6;
+    --md-sys-color-surface: #1b1b1f;
+    --md-sys-color-on-surface: #e3e2e6;
+    --md-sys-color-surface-variant: #44474f;
+    --md-sys-color-on-surface-variant: #c4c6d0;
+    --md-sys-color-outline: #8e9099;
   }
-}
-
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-geist-sans), 'Roboto', sans-serif;
+  background: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
 }
 
 a {
@@ -42,8 +92,299 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Material Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--md-sys-color-background);
+}
+
+.main-content {
+  flex: 1;
+  padding: 16px; /* M3 uses 16px grid */
+  padding-top: 80px; /* Space for Top App Bar */
+  padding-bottom: 96px; /* Space for Bottom Nav */
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* M3 Components */
+.card {
+  background: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
+  border-radius: var(--radius-l);
+  padding: 16px;
+  margin-bottom: 12px;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.card:active {
+  background: var(--md-sys-color-secondary-container);
+}
+
+.card-elevated {
+  background: var(--md-sys-color-surface);
+  box-shadow: var(--elevation-1);
+  transition: transform 0.25s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.25s ease;
+}
+
+.card-elevated:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--elevation-2);
+}
+
+.card-elevated:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.fab {
+  position: fixed;
+  bottom: 100px;
+  right: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px; /* M3 FABs use square-ish rounding */
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--elevation-2);
+  cursor: pointer;
+  z-index: 100;
+  border: none;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.fab:active {
+  transform: scale(0.95);
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+/* Bottom Navigation (M3 Style) */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px; /* M3 is taller */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  background: var(--md-sys-color-surface);
+  border-top: 1px solid var(--md-sys-color-surface-variant);
+  padding-bottom: env(safe-area-inset-bottom, 0); 
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.75rem;
+  font-weight: 500;
+  gap: 4px;
+  flex: 1;
+  text-decoration: none;
+}
+
+.nav-icon-wrapper {
+  padding: 4px 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.nav-item.active .nav-icon-wrapper {
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.nav-item.active {
+  color: var(--md-sys-color-on-surface);
+  font-weight: 700;
+}
+
+.nav-item svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Top App Bar */
+.top-app-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  z-index: 1100;
+  gap: 16px;
+  box-shadow: var(--elevation-1);
+}
+
+.top-app-bar h1 {
+  font-size: 1.375rem;
+  font-weight: 400; /* M3 titles are often Normal weight */
+  flex: 1;
+}
+
+.top-bar-action {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.top-bar-action:active {
+  background: var(--md-sys-color-surface-variant);
+}
+
+/* Utility */
+/* Utility */
+.flex-row { display: flex; align-items: center; }
+.justify-between { justify-content: space-between; }
+.text-sm { font-size: 0.875rem; }
+.text-xs { font-size: 0.75rem; }
+.badge {
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-on-tertiary-container);
+}
+
+/* Form Fields (M3 Style) */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-left: 4px;
+}
+
+.input-field {
+  background: var(--md-sys-color-surface-variant);
+  border: none;
+  border-bottom: 2px solid var(--md-sys-color-outline);
+  border-radius: var(--radius-s) var(--radius-s) 0 0;
+  padding: 16px;
+  color: var(--md-sys-color-on-surface);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.input-field:focus {
+  outline: none;
+  background: var(--md-sys-color-secondary-container);
+  border-bottom-color: var(--md-sys-color-primary);
+}
+
+.btn-primary {
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border: none;
+  border-radius: var(--radius-xl);
+  padding: 12px 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Premium Creative Accents */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(at 0% 0%, var(--md-sys-color-primary-container) 0px, transparent 50%),
+              radial-gradient(at 100% 0%, var(--md-sys-color-tertiary-container) 0px, transparent 50%),
+              radial-gradient(at 100% 100%, var(--md-sys-color-secondary-container) 0px, transparent 50%);
+  background-attachment: fixed;
+  overflow: hidden;
+  position: relative;
+}
+
+.auth-card {
+  background: rgba(253, 251, 255, 0.85); /* Slightly translucent M3 Surface */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--elevation-2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: slideUpFade 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  margin: 16px;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brand-icon-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+  box-shadow: 0 8px 16px rgba(0, 90, 193, 0.2);
+}
+
+.creative-greeting {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 8px;
 }

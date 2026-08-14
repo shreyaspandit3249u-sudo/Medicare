@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "927964260021",
+    "project_id": "medicare-plus12",
+    "storage_bucket": "medicare-plus12.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927964260021:android:09441483df49b59825c0fc",
+        "android_client_info": {
+          "package_name": "com.shreyaspandit.medicareplus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFgdiXlB1NEWva_DFhAsMw-A_zzP-BaUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
